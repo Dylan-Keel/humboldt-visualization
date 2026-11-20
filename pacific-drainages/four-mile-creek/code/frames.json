@@ -1,0 +1,190 @@
+[
+ {
+  "id": "1942",
+  "file": "h1942",
+  "label": "1942",
+  "year": 1942,
+  "date": "February 15, 1942",
+  "source": "USDA flight CVL, 1:20,000, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: CVL-9B-04, CVL-9B-05, CVL-9B-62, CVL-9B-63",
+  "res": "about 0.8 m",
+  "note": "The east edge of the watershed view is filled from the same survey flown October 29, 1941 (frames CVL-1B-62 and CVL-1B-63)",
+  "bw": true
+ },
+ {
+  "id": "1948",
+  "file": "h1948",
+  "label": "1948",
+  "year": 1948,
+  "date": "June 22, 1948",
+  "source": "California Division of Forestry flight CDF2, 1:20,000, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: CDF2-13-151, CDF2-13-152, CDF2-14-21, CDF2-14-22, CDF2-14-27, CDF2-14-28",
+  "res": "about 0.8 m",
+  "note": "",
+  "bw": true
+ },
+ {
+  "id": "1954",
+  "file": "h1954",
+  "label": "1954",
+  "year": 1954,
+  "date": "July 22, 1954",
+  "source": "USDA flight CVL, 1:20,000, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: CVL-8N-100, CVL-8N-101, CVL-8N-27, CVL-8N-28, CVL-8N-44, CVL-8N-45",
+  "res": "about 0.8 m",
+  "note": "About 8 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1959",
+  "file": "h1959",
+  "label": "1959",
+  "year": 1959,
+  "date": "May 22 and June 10, 1959",
+  "source": "Humboldt County flight HS, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: HS01-03, HS01-05, HS1-06, HS1-08, HS2-34, HS2-36, HS3-08, HS3-09, HS3-10",
+  "res": "about 0.6 m",
+  "note": "About 5 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1963",
+  "file": "h1963",
+  "label": "1963",
+  "year": 1963,
+  "date": "August 14, 1963",
+  "source": "Humboldt County flight HC-S-2-3, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: HC-S-2-3-3-03, HC-S-2-3-4-04, HC-S-2-3-4-06, HC-S-2-3-5-05, HC-S-2-3-5-07, HC-S-2-3-6-07, HC-S-2-3-6-09, HC-S-2-3-7-08, HC-S-2-3-7-10, HC-S-2-3-8-10, HC-S-2-3-8-11",
+  "res": "about 0.5 m",
+  "note": "Some prints carry no date. About 8 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1966",
+  "file": "h1966",
+  "label": "1966",
+  "year": 1966,
+  "date": "September 2, 1966",
+  "source": "Humboldt County flight HC-66, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: HC-66-4-04, HC-66-4-06, HC-66-5-06, HC-66-5-08, HC-66-6A-07, HC-66-6A-09, HC-66-7A-08, HC-66-7A-10, HC-66-8A-09, HC-66-8A-10, HC-66-8A-11",
+  "res": "about 0.5 m",
+  "note": "Some prints carry no date. About 13 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1970",
+  "file": "h1970",
+  "label": "1970",
+  "year": 1970,
+  "date": "July 22 and October 8, 1970",
+  "source": "Humboldt County flight CH-70, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: CH-70-4-04, CH-70-4-06, CH-70-6-08, CH-70-6-10, CH-70-7A-09, CH-70-7A-11, CH-70-8A-10, CH-70-8A-12, CH-70-R5-05, CH-70-R5-07",
+  "res": "about 0.5 m",
+  "note": "About 14 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1981",
+  "file": "h1981",
+  "label": "1981",
+  "year": 1981,
+  "date": "June 15, 1981",
+  "source": "California Department of Forestry flight CDF ALL-EU, black and white. Mosaic of full-resolution scans (Cal Poly Humboldt), orthorectified here. Frames: CDF ALL-EU 2-2, CDF ALL-EU 2-4, CDF ALL-EU 4-6",
+  "res": "about 1 m",
+  "note": "I found no frames from the flight line over the middle of the watershed. About 27 percent of the watershed view has no coverage",
+  "bw": true
+ },
+ {
+  "id": "1993",
+  "file": "h1993",
+  "label": "1993",
+  "year": 1993,
+  "date": "June 13 and June 25, 1993",
+  "source": "USGS National Aerial Photography Program frames 6247-163 and 6250-11, black and white, 1:40,000 (UCSB Library scans), orthorectified here",
+  "res": "about 1.7 m",
+  "bw": true
+ },
+ {
+  "id": "2005",
+  "file": "county_2005",
+  "label": "2005",
+  "year": 2005,
+  "date": "Summer 2005",
+  "source": "USDA NAIP natural color (Humboldt County image service)",
+  "res": "1 m"
+ },
+ {
+  "id": "2009",
+  "file": "county_2009",
+  "label": "2009",
+  "year": 2009,
+  "date": "Summer 2009",
+  "source": "USDA NAIP natural color (Humboldt County image service)",
+  "res": "1 m"
+ },
+ {
+  "id": "2010",
+  "file": "county_2010",
+  "label": "2010",
+  "year": 2010,
+  "date": "Summer 2010",
+  "source": "USDA NAIP natural color (Humboldt County image service)",
+  "res": "1 m"
+ },
+ {
+  "id": "2012",
+  "file": "naip_2012",
+  "label": "2012",
+  "year": 2012,
+  "date": "June 10, 2012",
+  "source": "USDA NAIP natural color",
+  "res": "1 m"
+ },
+ {
+  "id": "2014",
+  "file": "naip_2014",
+  "label": "2014",
+  "year": 2014,
+  "date": "June 7, 2014",
+  "source": "USDA NAIP natural color",
+  "res": "1 m"
+ },
+ {
+  "id": "2016",
+  "file": "naip_2016",
+  "label": "2016",
+  "year": 2016,
+  "date": "June 19, 2016",
+  "source": "USDA NAIP natural color",
+  "res": "0.6 m"
+ },
+ {
+  "id": "2018",
+  "file": "naip_2018",
+  "label": "2018",
+  "year": 2018,
+  "date": "September 20, 2018",
+  "source": "USDA NAIP natural color",
+  "res": "0.6 m"
+ },
+ {
+  "id": "2020",
+  "file": "naip_2020",
+  "label": "2020",
+  "year": 2020,
+  "date": "July 18, 2020",
+  "source": "USDA NAIP natural color",
+  "res": "0.6 m"
+ },
+ {
+  "id": "2022",
+  "file": "naip_2022",
+  "label": "2022",
+  "year": 2022,
+  "date": "July 10, 2022",
+  "source": "USDA NAIP natural color",
+  "res": "0.6 m"
+ },
+ {
+  "id": "2025",
+  "file": "esri",
+  "label": "2025",
+  "year": 2025,
+  "date": "May 10, 2025",
+  "source": "Satellite image from Esri World Imagery",
+  "res": "about 0.5 m"
+ }
+]
