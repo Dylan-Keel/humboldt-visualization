@@ -32,6 +32,7 @@ body.wide .work{grid-template-columns:minmax(0,1fr)}
 body.wide .side{flex-direction:row;flex-wrap:wrap;align-items:flex-start}
 body.wide .side>*{flex:1 1 300px}
 body.wide .stage{max-height:88vh}
+@media(orientation:landscape) and (max-height:520px){body.wide .stage{max-height:96vh}}
 .stage.drag{cursor:grabbing}
 .layer{position:absolute;inset:0;transform-origin:0 0;will-change:transform}
 .layer img{position:absolute;inset:0;width:100%;height:100%;display:block;visibility:hidden;user-select:none;-webkit-user-drag:none}
@@ -97,17 +98,18 @@ table.fr{border-collapse:collapse;font:13px var(--display)}table.fr td{padding:5
   <div class="tabs" role="group" aria-label="View" id="tabs"></div>
 </header>
 <div class="work">
-  <div>
+  <div id="hold" style="position:relative">
     <div class="stage" id="stage">
       <div class="layer" id="layer"></div>
       <div class="badge"><b id="yr">1993</b><span id="dt"></span></div>
-      <div class="north">N ↑</div>
+      <div class="north" id="north">N ↑</div>
       <div class="scale"><span id="sclabel"></span><i id="scbar"></i></div>
       <div class="loading" id="loading" hidden>loading</div>
     </div>
   </div>
   <div class="side">
     <div class="box">
+      <button class="ctl" id="rot" hidden style="margin-bottom:8px">Rotate view</button>
       <div class="row">
         <button class="ctl" id="prev" aria-label="Previous frame">◀</button>
         <button class="ctl main" id="play">Play</button>
@@ -160,9 +162,7 @@ const $=id=>document.getElementById(id);
 const stage=$('stage'), layer=$('layer');
 function build(){
   const v=V[view];
-  stage.style.aspectRatio=v.w+' / '+v.h;
-  const wide=v.w/v.h>1.6; document.body.classList.toggle('wide',wide);
-  stage.style.maxWidth='calc('+(wide?88:82)+'vh * '+(v.w/v.h).toFixed(4)+')';
+  layout();
   layer.innerHTML='';
   let pending=F.length; $('loading').hidden=false;
   F.forEach((f,i)=>{
@@ -213,6 +213,18 @@ function scalebar(){
   const opts=[1000,500,200,100,50,20,10]; let m=opts.find(o=>o*pxPerM<=stage.clientWidth*0.3)||10;
   $('scbar').style.width=(m*pxPerM)+'px'; $('sclabel').textContent=m>=1000?(m/1000)+' km':m+' m';
 }
+let ROT=false;
+function layout(){
+  const v=V[view], a=v.w/v.h, wide=a>1.6, hold=$('hold'), st=stage.style;
+  document.body.classList.toggle('wide',wide);
+  const can=wide&&innerHeight>innerWidth; $('rot').hidden=!can; if(!can) ROT=false;
+  $('rot').textContent=ROT?'Unrotate view':'Rotate view';
+  if(ROT){ const Wc=hold.clientWidth, h0=Math.min(Wc,innerHeight*0.92/a), w0=h0*a;
+    hold.style.height=w0+'px'; st.aspectRatio='auto'; st.width=w0+'px'; st.height=h0+'px'; st.maxWidth='none'; st.maxHeight='none'; st.margin='0';
+    st.position='absolute'; st.top='0'; st.left=((Wc-h0)/2+h0)+'px'; st.transformOrigin='0 0'; st.transform='rotate(90deg)';
+  } else { hold.style.height=''; ['width','height','maxHeight','margin','position','top','left','transformOrigin','transform'].forEach(k=>st[k]='');
+    st.aspectRatio=v.w+' / '+v.h; st.maxWidth='calc('+(wide?88:82)+'vh * '+a.toFixed(4)+')'; }
+}
 function apply(){
   const w=stage.clientWidth,h=stage.clientHeight;
   Z.s=Math.min(12,Math.max(1,Z.s));
@@ -222,7 +234,7 @@ function apply(){
 function zoomAt(cx,cy,k){ const s0=Z.s; const s1=Math.min(12,Math.max(1,s0*k)); Z.x=cx-(cx-Z.x)*(s1/s0); Z.y=cy-(cy-Z.y)*(s1/s0); Z.s=s1; apply(); }
 function resetZoom(){ Z={s:1,x:0,y:0}; apply(); }
 const P=new Map(); let pd=0;
-function loc(e){ const r=stage.getBoundingClientRect(); return [e.clientX-r.left,e.clientY-r.top]; }
+function loc(e){ const r=stage.getBoundingClientRect(); return ROT?[e.clientY-r.top,r.right-e.clientX]:[e.clientX-r.left,e.clientY-r.top]; }
 stage.addEventListener('pointerdown',e=>{ stage.setPointerCapture(e.pointerId); P.set(e.pointerId,loc(e)); stage.classList.add('drag'); if(P.size===2){ const a=[...P.values()]; pd=Math.hypot(a[0][0]-a[1][0],a[0][1]-a[1][1]); } });
 stage.addEventListener('pointermove',e=>{ if(!P.has(e.pointerId)) return; const prev=P.get(e.pointerId), cur=loc(e); P.set(e.pointerId,cur);
   if(P.size===1){ Z.x+=cur[0]-prev[0]; Z.y+=cur[1]-prev[1]; apply(); }
@@ -230,7 +242,8 @@ stage.addEventListener('pointermove',e=>{ if(!P.has(e.pointerId)) return; const 
 ['pointerup','pointercancel'].forEach(t=>stage.addEventListener(t,e=>{ P.delete(e.pointerId); if(!P.size) stage.classList.remove('drag'); pd=0; }));
 stage.addEventListener('wheel',e=>{ e.preventDefault(); const c=loc(e); zoomAt(c[0],c[1],e.deltaY<0?1.2:1/1.2); },{passive:false});
 stage.addEventListener('dblclick',e=>{ const c=loc(e); if(Z.s>1.05) resetZoom(); else zoomAt(c[0],c[1],3); });
-window.addEventListener('resize',apply);
+window.addEventListener('resize',()=>{ layout(); apply(); });
+$('rot').onclick=()=>{ ROT=!ROT; layout(); resetZoom(); if(ROT) $('hold').scrollIntoView({block:'start'}); };
 F.forEach((f,i)=>{ const b=document.createElement('button'); b.textContent=f.label; if(f.bw){ b.className='bw'; b.title='Black and white'; } b.onclick=()=>{ play(false); show(i); }; $('years').appendChild(b); });
 $('scrub').max=F.length-1;
 $('scrub').oninput=e=>{ play(false); show(+e.target.value); };
